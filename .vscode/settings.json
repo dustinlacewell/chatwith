@@ -1,0 +1,7 @@
+{
+    "exportall.config.folderListener": [
+        "/src/ui/App",
+        "/src/ui/Robot",
+        "/src/ui"
+    ]
+}

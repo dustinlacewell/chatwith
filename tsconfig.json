@@ -1,0 +1,15 @@
+{
+	"extends": "@sindresorhus/tsconfig",
+	"compilerOptions": {
+		"module": "commonjs",
+		"jsx": "react-jsx",
+		"esModuleInterop": true,
+		"outDir": "dist",
+		"baseUrl": ".",
+		"paths": {
+			// make @ui import from src/ui
+			"@ui": ["src/ui"]
+		},
+	},
+	"include": ["src/**/*", "global.d.ts"]
+}
