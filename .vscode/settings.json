@@ -2,6 +2,8 @@
     "exportall.config.folderListener": [
         "/src/ui/App",
         "/src/ui/Robot",
-        "/src/ui"
+        "/src/ui",
+        "/src/ui/TextBox",
+        "/src/ui/TextInput"
     ]
 }
