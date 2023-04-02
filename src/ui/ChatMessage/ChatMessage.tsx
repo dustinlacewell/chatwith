@@ -1,8 +1,6 @@
+import React from "react";
 
-
-// ChatMessage.tsx
-
-import { Box, Text} from "ink";
+import { Box, Text } from "ink";
 
 export type ChatMessageProps = {
     author: "You" | "AI";

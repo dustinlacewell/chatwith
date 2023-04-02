@@ -1,1 +1,1 @@
-export * from './Robot';
+export * from './Robot.js';
