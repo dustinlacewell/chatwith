@@ -4,6 +4,7 @@
         "/src/ui/Robot",
         "/src/ui",
         "/src/ui/TextBox",
-        "/src/ui/TextInput"
+        "/src/ui/TextInput",
+        "/src/ui/ChatMessage"
     ]
 }

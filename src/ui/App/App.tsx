@@ -1,22 +1,31 @@
 import { FC, useState } from 'react';
 
-import { Text, Box, Static } from 'ink';
+import { Box, Static } from 'ink';
 
-import { TextBox } from '@ui';
+import { ChatMessage, TextBox } from '@ui';
+
+export type ChatMessageData = {
+	author: 'You' | 'AI';
+	message: string;
+}
 
 export const App: FC = () => {
 	const [input, setInput] = useState<string>('');
+	const [history, setHistory] = useState<ChatMessageData[]>([{
+		author: 'AI',
+		message: 'Hello, I am a chatbot. How are you doing today?'
+	}]);
 
 	const onSubmit = () => {
-		console.log(input);
+		setHistory([...history, { author: 'You', message: input }]);
 		setInput('');
 	};
 	
-	return <Box>
-		<Static items={[1]}>
-			{() => {
-				return <Box key={1}>
-					<Text>Conversation goes here.</Text>
+	return <Box width={80}>
+		<Static items={history}>
+			{(item, idx) => {
+				return <Box key={idx} width={80} justifyContent={item.author === 'You' ? 'flex-end': 'flex-start'}>
+					<ChatMessage {...item} />
 				</Box>
 			}}
 		</Static>
