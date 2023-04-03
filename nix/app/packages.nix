@@ -7,7 +7,7 @@ in rec {
   default = chatwith;
   chatwith = nixpkgs.buildNpmPackage {
 		pname = "chatwith";
-		version = "0.0.0";
+		version = "0.1.0";
 
 		src = std.incl self [
 			"package.json"
@@ -17,6 +17,6 @@ in rec {
 			"src"
 		];
 
-		npmDepsHash = "sha256-+z5VpV1iHI5C3Ey490+MadstBIRSKqB2zA0f/KqxqM4=";
+		npmDepsHash = "sha256-WYIFdjuapxirGzqy31ekP1BjVxTLgZZjkT2x4yOG7To=";
 	};
 }

@@ -1,14 +1,10 @@
 import React from "react";
 
 import { Box, Text } from "ink";
+import { ChatMessageT } from "../index.js";
 
-export type ChatMessageProps = {
-    author: "You" | "AI";
-    message: string;
-}
-
-export const ChatMessage = (props: ChatMessageProps) => {
-    return <Box width={60} borderStyle="round" flexDirection="column" alignItems={props.author === 'You' ? "flex-end" : "flex-start"}>
-        <Text>{props.author}: {props.message}</Text>
+export const ChatMessage = (props: ChatMessageT) => {
+    return <Box width={60} borderStyle="round" flexDirection="column" alignItems={props.role === 'user' ? "flex-end" : "flex-start"}>
+        <Text>{props.role}: {props.content}</Text>
     </Box>
 }
