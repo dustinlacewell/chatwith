@@ -31,22 +31,30 @@ export const App: FC = () => {
 
     const onSubmit = async () => {
         setWaiting(true);
+
+        const userMessage: ChatMessageT = {
+            role: "user",
+            content: input,
+        };
+
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
-            messages: history,
+            messages: [...history, userMessage],
         });
 
         if (typeof completion.data.choices[0] === "undefined" || typeof completion.data.choices[0].message === "undefined") {
             return
         }
 
-        const message = completion.data.choices[0].message.content;
+        const aiMessage: ChatMessageT = {
+            role: "assistant",
+            content: completion.data.choices[0].message.content,
+        };
 
         extendHistory([
-            { role: "user", content: input },
-            { role: "assistant", content: message }
+            userMessage,
+            aiMessage
         ]);
-
         setWaiting(false);
         setInput('');
     };
